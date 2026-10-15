@@ -1,0 +1,71 @@
+:root{--azul:#1e78b4;--azul-osc:#0f4c75;--verde:#2bb59a;--menta:#d9f5ee;--cielo:#dff0fb;--tinta:#10324a;--blanco:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--tinta);line-height:1.6;
+ background:linear-gradient(120deg,#ffffff,#dff0fb,#c9f1e6,#bfe3f7,#ffffff,#d9f5ee);
+ background-size:500% 500%;animation:fondo 24s ease-in-out infinite;background-attachment:fixed}
+@keyframes fondo{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media(prefers-reduced-motion:reduce){body{animation:none}}
+img,video{max-width:100%;display:block}
+a{color:var(--azul-osc)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;text-align:center}
+.sub{text-align:center;max-width:620px;margin:0 auto 40px}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(--azul);color:#fff;font-weight:800;text-decoration:none;border:2px solid var(--azul)}
+.btn:hover{background:var(--azul-osc);border-color:var(--azul-osc)}
+.btn.alt{background:transparent;color:var(--azul-osc)}
+.btn.alt:hover{background:var(--azul-osc);color:#fff}
+.btn.verde{background:var(--verde);border-color:var(--verde)}
+:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+.card{background:rgba(255,255,255,.82);border-radius:18px;padding:24px;box-shadow:0 6px 24px rgba(15,76,117,.1)}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-bottom:1px solid #cfe6ee}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--tinta)}
+.nav img.logo{width:4cm;height:4cm;object-fit:contain}
+.brand-info{display:flex;flex-direction:column}
+.brand-title{font-size:1.5rem;font-weight:800;line-height:1.1;color:var(--azul-osc)}
+.brand-slogan{font-size:0.9rem;font-weight:600;color:var(--verde)}
+.nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{text-decoration:none;font-weight:600;color:var(--tinta)}
+.nav ul a:hover{color:var(--verde)}
+/* hero */
+.hero{position:relative;padding:0;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.hero .wrap{position:relative;padding-top:60px;padding-bottom:60px}
+.hero p{max-width:540px;font-size:1.15rem}
+.hero .acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.estado{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--menta);font-weight:800;font-size:.9rem;margin-bottom:16px}
+/* servicios */
+.serv img{width:100%;height:170px;object-fit:cover;border-radius:12px;margin-bottom:14px}
+/* nosotros */
+.dos{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:center}
+.dos img{border-radius:20px;width:100%}
+.equipo img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin:0 auto 12px}
+.equipo .card{text-align:center}
+/* horarios */
+table{width:100%;border-collapse:collapse}
+td{padding:10px 6px;border-bottom:1px solid #d6e8ee}
+td:last-child{text-align:right;font-weight:800}
+.urg{background:var(--azul-osc);color:#fff}
+.urg a{color:#fff}
+/* pagos */
+.pago h3{color:var(--azul-osc)}
+.datos{background:var(--cielo);border-radius:12px;padding:14px;font-size:.95rem;margin-top:10px}
+/* galeria */
+.galeria{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.galeria img{width:100%;height:220px;object-fit:cover;border-radius:14px}
+.tour video{width:100%;border-radius:20px;margin-top:30px}
+/* faq */
+details{background:rgba(255,255,255,.85);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:800}
+/* contacto */
+form{display:grid;gap:12px}
+input,select,textarea{font:inherit;padding:12px;border-radius:10px;border:1px solid #b9d5e0;width:100%}
+footer{background:var(--azul-osc);color:#cfe6ee;padding:36px 0;text-align:center;font-size:.95rem}
+footer a{color:#fff}
+.wa{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#fff;padding:14px 20px;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
