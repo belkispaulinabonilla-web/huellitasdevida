@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huellitas de Vida – Clínica veterinaria</title>
+<link rel="icon" type="image/jpeg" href="imagenes/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* ===== COLORES Y DISEÑO: aquí se cambian los colores (primera línea :root) y los estilos ===== */
+:root{--azul:#1e78b4;--azul-osc:#0f4c75;--verde:#2bb59a;--menta:#d9f5ee;--cielo:#dff0fb;--tinta:#10324a;--blanco:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--tinta);line-height:1.6;
+ background:linear-gradient(120deg,#ffffff,#dff0fb,#c9f1e6,#bfe3f7,#ffffff,#d9f5ee);
+ background-size:500% 500%;animation:fondo 24s ease-in-out infinite;background-attachment:fixed}
+@keyframes fondo{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media(prefers-reduced-motion:reduce){body{animation:none}}
+img,video{max-width:100%;display:block}
+a{color:var(--azul-osc)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;text-align:center}
+.sub{text-align:center;max-width:620px;margin:0 auto 40px}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(--azul);color:#fff;font-weight:800;text-decoration:none;border:2px solid var(--azul)}
+.btn:hover{background:var(--azul-osc);border-color:var(--azul-osc)}
+.btn.alt{background:transparent;color:var(--azul-osc)}
+.btn.alt:hover{background:var(--azul-osc);color:#fff}
+.btn.verde{background:var(--verde);border-color:var(--verde)}
+:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+.card{background:rgba(255,255,255,.82);border-radius:18px;padding:24px;box-shadow:0 6px 24px rgba(15,76,117,.1)}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-bottom:1px solid #cfe6ee}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--tinta)}
+.nav img.logo{width:4cm;height:4cm;object-fit:contain}
+.brand-info{display:flex;flex-direction:column}
+.brand-title{font-size:1.5rem;font-weight:800;line-height:1.1;color:var(--azul-osc)}
+.brand-slogan{font-size:0.9rem;font-weight:600;color:var(--verde)}
+.nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{text-decoration:none;font-weight:600;color:var(--tinta)}
+.nav ul a:hover{color:var(--verde)}
+/* hero */
+.hero{position:relative;padding:0;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.hero .wrap{position:relative;padding-top:60px;padding-bottom:60px}
+.hero p{max-width:540px;font-size:1.15rem}
+.hero .acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.estado{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--menta);font-weight:800;font-size:.9rem;margin-bottom:16px}
+/* servicios */
+.serv img{width:100%;height:170px;object-fit:cover;border-radius:12px;margin-bottom:14px}
+/* nosotros */
+.dos{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:center}
+.dos img{border-radius:20px;width:100%}
+.equipo img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin:0 auto 12px}
+.equipo .card{text-align:center}
+/* horarios */
+table{width:100%;border-collapse:collapse}
+td{padding:10px 6px;border-bottom:1px solid #d6e8ee}
+td:last-child{text-align:right;font-weight:800}
+.urg{background:var(--azul-osc);color:#fff}
+.urg a{color:#fff}
+/* pagos */
+.pago h3{color:var(--azul-osc)}
+.datos{background:var(--cielo);border-radius:12px;padding:14px;font-size:.95rem;margin-top:10px}
+/* galeria */
+.galeria{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.galeria img{width:100%;height:220px;object-fit:cover;border-radius:14px}
+.tour video{width:100%;border-radius:20px;margin-top:30px}
+/* faq */
+details{background:rgba(255,255,255,.85);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:800}
+/* contacto */
+form{display:grid;gap:12px}
+input,select,textarea{font:inherit;padding:12px;border-radius:10px;border:1px solid #b9d5e0;width:100%}
+footer{background:var(--azul-osc);color:#cfe6ee;padding:36px 0;text-align:center;font-size:.95rem}
+footer a{color:#fff}
+.wa{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#fff;padding:14px 20px;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+</style>
+</head>
+ <!-- MARQUESINA FIJA ARRIBA -->
+    <div class="marquesina-superior">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            🔬¡Bienvenidos ala veterinaria huellitas de vida. :) 🧪
+        </marquee>
+    </div>
+
+    <!-- AUDIO CONFIGURADO CON LOOP INFINITO -->
+   <audio id="sonido" src="multimedia/tu-musica.mp3" controls autoplay loop></audio>
+    <audio id="sonidito" src="multimedia/efecto-cambio.mp3"></audio>
+
+<body>
+
+<header>
+  <div class="nav">
+  <a href="#inicio" class="brand">
+   <img class="logo" src="imagenes/logo.jpeg" alt="Huellitas de Vida">
+   <div class="brand-info">
+    <span class="brand-title">Huellitas de Vida</span>
+    <span class="brand-slogan">La salud, nuestro mayor amor</span>
+   </div>
+   </a>
+  <nav><ul>
+   <li><a href="#servicios">Servicios</a></li>
+   <li><a href="#nosotros">Nosotros</a></li>
+   <li><a href="#horarios">Horarios</a></li>
+   <li><a href="#pagos">Pagos</a></li>
+   <li><a href="#faq">Preguntas</a></li>
+   <li><a href="#contacto">Contacto</a></li>
+  </ul></nav>
+  <a href="#contacto" class="btn">Agendar cita</a>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+ <video autoplay muted loop playsinline poster="imagenes/portada.jpg"><source src="multimedia/portada.mp4" type="video/mp4"></video>
+ <div class="wrap">
+  <span class="estado" id="estado">Consulta nuestro horario</span>
+  <h1>Cuidemos a nuestra mascota porque es un miembro más de la familia</h1>
+  <p>Consultas, vacunas, cirugías, laboratorio y peluquería con atención cercana y emergencias las 24 horas.</p>
+  <div class="acciones">
+   <a class="btn" href="#contacto">Agendar cita</a>
+   <a class="btn alt" href="#servicios">Ver servicios</a>
+  </div>
+ </div>
+</section>
+
+<section id="servicios">
+ <div class="wrap">
+  <h2>Nuestros servicios</h2>
+  <p class="sub">Todo lo que tu perro, gato o mascota exótica necesita, en un solo lugar.</p>
+  <div class="grid">
+   <article class="card serv"><img src="imagenes/consulta-veterinaria.jpg" alt="Consulta veterinaria"><h3>Consulta general</h3><p>Revisión completa, diagnóstico y plan de tratamiento. Desde L 300.</p></article>
+   <article class="card serv"><img src="imagenes/vacunacion.jpg" alt="Vacunación"><h3>Vacunas y desparasitación</h3><p>Esquemas para cachorros, adultos y gatos, con carnet de vacunación.</p></article>
+   <article class="card serv"><img src="imagenes/cirugia.jpeg" alt="Cirugía"><h3>Cirugía y esterilización</h3><p>Quirófano equipado, anestesia monitoreada y control posoperatorio.</p></article>
+   <article class="card serv"><img src="imagenes/laboratorio.jpg" alt="Laboratorio"><h3>Laboratorio y rayos X</h3><p>Análisis de sangre, ecografía y radiografía con resultados el mismo día.</p></article>
+   <article class="card serv"><img src="imagenes/peluqueria-canina.jpg" alt="Peluquería canina"><h3>Peluquería y baño</h3><p>Baño medicado, corte de pelo y de uñas, limpieza de oídos.</p></article>
+   <article class="card serv"><img src="imagenes/visita-a-domicilio.jpg" alt="Visita a domicilio"><h3>Visita a domicilio</h3><p>Vamos a tu casa para consultas y vacunas. Agenda con anticipación.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="nosotros">
+ <div class="wrap">
+  <div class="dos">
+   <img src="imagenes/clinica.jpg" alt="Clínica Huellitas de Vida por dentro">
+   <div>
+    <h2 style="text-align:left">Más de 10 años cuidando mascotas</h2>
+    <p>En Huellitas de Vida trabajamos con médicos veterinarios colegiados y un trato cálido. Te explicamos cada diagnóstico con claridad y te acompañamos durante todo el tratamiento.</p>
+    <p>Atendemos perros, gatos, conejos, aves y otras mascotas pequeñas.</p>
+   </div>
+  </div>
+  <div class="grid equipo" style="margin-top:40px">
+   <div class="card"><img src="imagenes/equipo1.jpg" alt="Dra.Gloria Bonilla "><h3>Dra. Gloria Bonilla</h3><p>Medicina general y cirugía</p></div>
+   <div class="card"><img src="imagenes/equipo2.jpg" alt="Dr.Abilio Licona "><h3>Dr. Abilio Licona</h3><p>Medicina interna y emergencias</p></div>
+   <div class="card"><img src="imagenes/equipo3.jpg" alt="Lic.Estela  Bonilla"><h3>Lic. Estela Bonilla</h3><p>Peluquería y bienestar</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="horarios">
+ <div class="wrap">
+  <h2>Horarios de atención</h2>
+  <p class="sub">Para urgencias, llama a cualquier hora.</p>
+  <div class="grid">
+   <div class="card">
+    <h3>Clínica</h3>
+    <table>
+     <tr><td>Lunes a viernes</td><td>8:00 a.m. – 6:00 p.m.</td></tr>
+     <tr><td>Sábado</td><td>8:00 a.m. – 1:00 p.m.</td></tr>
+     <tr><td>Domingo</td><td>Solo emergencias</td></tr>
+    </table>
+   </div>
+   <div class="card urg">
+    <h3>Emergencias 24 horas</h3>
+    <p>Atropellos, envenenamientos, dificultad para respirar, convulsiones o partos complicados.</p>
+    <p><a href="tel:+50400000000"><strong>+504 0000-0000</strong></a></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="pagos">
+ <div class="wrap">
+  <h2>Formas de pago</h2>
+  <p class="sub">Elige la que te quede más cómoda. Si pagas por transferencia, envíanos el comprobante.</p>
+  <div class="grid">
+   <div class="card pago"><h3>Transferencia bancaria</h3><p>Deposita o transfiere y envía la captura por WhatsApp indicando el nombre de tu mascota.</p>
+    <div class="datos">Banco: <strong>[Nombre del banco]</strong><br>Cuenta: <strong>[Número de cuenta]</strong><br>Titular: <strong>Huellitas de Vida</strong><br>Tipo: <strong>[Ahorro / Cheques]</strong></div></div>
+   <div class="card pago"><h3>Tarjeta de crédito o débito</h3><p>Aceptamos Visa y Mastercard en la clínica. Enlace de pago seguro disponible para consultas a distancia.</p></div>
+   <div class="card pago"><h3>Efectivo</h3><p>Pago en lempiras en la clínica o contra entrega en visitas a domicilio.</p></div>
+   <div class="card pago"><h3>Billetera móvil</h3><p>Pago desde tu celular.<div class="datos">Número: <strong>[Número de billetera]</strong></div></p></div>
+  </div>
+ </div>
+</section>
+
+<section id="galeria">
+ <div class="wrap">
+  <h2>Conoce Huellitas de Vida</h2>
+  <p class="sub">Un vistazo a nuestras instalaciones y a los pacientes que nos visitan.</p>
+  <div class="galeria">
+   <img src="imagenes/perro-en-consulta.jpg" alt="Perro en consulta">
+   <img src="imagenes/gato-en-consulta.jpg" alt="Gato en revisión">
+   <img src="imagenes/sala-de-espera.jpg" alt="Sala de espera">
+   <img src="imagenes/mascota-recuperada.jpg" alt="Mascota recuperada">
+  </div>
+  <div class="tour"><video controls preload="metadata"><source src="multimedia/clinica.mp4" type="video/mp4"></video></div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap" style="max-width:760px">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Necesito cita?</summary><p>Recomendamos agendar, pero atendemos sin cita según disponibilidad. Las emergencias tienen prioridad.</p></details>
+  <details><summary>¿Cada cuánto debo vacunar a mi mascota?</summary><p>Los cachorros y gatitos siguen un esquema inicial y luego un refuerzo anual. Te damos un carnet con las fechas.</p></details>
+  <details><summary>¿Puedo pagar por transferencia?</summary><p>Sí. Envía el comprobante por WhatsApp y te confirmamos el pago.</p></details>
+  <details><summary>¿Atienden a domicilio?</summary><p>Sí, en zonas cercanas a la clínica. Escríbenos para coordinar fecha y costo.</p></details>
+  <details><summary>¿Qué hago si mi mascota tiene una emergencia fuera de horario?</summary><p>Llama a nuestra línea de emergencias 24 horas y te indicamos cómo llegar.</p></details>
+ </div>
+</section>
+
+<section id="contacto">
+ <div class="wrap">
+  <h2>Atención al cliente</h2>
+  <p class="sub">Escríbenos y respondemos en minutos durante el horario de atención.</p>
+  <div class="dos">
+   <div class="card">
+    <h3>Contáctanos</h3>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/50400000000">+504 0000-0000</a><br>
+    <strong>Teléfono:</strong> <a href="tel:+50400000000">+504 0000-0000</a><br>
+    <strong>Correo:</strong> <a href="mailto:info@huellitasdevida.com">info@huellitasdevida.com</a><br>
+    <strong>Dirección:</strong> [Calle, colonia y ciudad]<br>
+    <strong>Redes:</strong> <a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+   </div>
+   <form id="cita" class="card">
+    <h3>Agenda tu cita</h3>
+    <input name="dueno" placeholder="Tu nombre" required>
+    <input name="mascota" placeholder="Nombre y especie de tu mascota" required>
+    <select name="servicio"><option>Consulta general</option><option>Vacunas</option><option>Cirugía</option><option>Laboratorio</option><option>Peluquería</option><option>Visita a domicilio</option></select>
+    <textarea name="mensaje" rows="3" placeholder="Cuéntanos qué necesita tu mascota"></textarea>
+    <button class="btn verde" type="submit">Enviar por WhatsApp</button>
+   </form>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <p><strong>Huellitas de Vida</strong> · Clínica veterinaria</p>
+  <p>© 2026 Huellitas de Vida. Todos los derechos reservados. · <a href="#">Aviso de privacidad</a></p>
+ </div>
+</footer>
+
+<a class="wa" href="https://wa.me/50400000000" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+/* ===== PROGRAMACIÓN: botón de WhatsApp y letrero Abierto/Cerrado ===== */
+// Cambia aquí el número de WhatsApp (código de país + número, sin signos)
+var WHATSAPP="50400000000";
+document.getElementById("cita").addEventListener("submit",function(e){
+ e.preventDefault();
+ var f=new FormData(e.target);
+ var t="Hola, soy "+f.get("dueno")+". Quiero agendar: "+f.get("servicio")+" para "+f.get("mascota")+". "+f.get("mensaje");
+ window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank");
+});
+// Indicador de abierto/cerrado (hora local del visitante)
+(function(){
+ var d=new Date(),dia=d.getDay(),h=d.getHours()+d.getMinutes()/60,ab=false;
+ if(dia>=1&&dia<=5)ab=h>=8&&h<18;
+ if(dia===6)ab=h>=8&&h<13;
+ var el=document.getElementById("estado");
+ el.textContent=ab?"Abierto ahora":"Cerrado · emergencias 24 h";
+})();
+</script>
+</body>
+</html>
